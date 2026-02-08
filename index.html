@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento aprovado</title>
+
+  <!-- ===================== -->
+  <!-- TIKTOK PIXEL -->
+  <!-- ===================== -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject = t;
+      var ttq = w[t] = w[t] || [];
+      ttq.methods = ["page","track"];
+      ttq.setAndDefer = function (t, e) {
+        t[e] = function () {
+          t.push([e].concat([].slice.call(arguments)))
+        }
+      };
+      ttq.setAndDefer(ttq, "page");
+      ttq.setAndDefer(ttq, "track");
+      ttq.load('D6155EJC77UECCBSLDA0');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+</head>
+
+<body>
+
+  <h2>Pagamento confirmado ✅</h2>
+
+  <a id="btnTelegram" href="https://t.me/acessovipninfas_bot">
+    👉 Acessar Telegram
+  </a>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const ttclid = params.get('ttclid');
+  const value = params.get('value') || 27.90;
+
+  // Disparo do Purchase
+  ttq.track('Purchase', {
+    value: parseFloat(value),
+    currency: 'BRL',
+    ttclid: ttclid
+  });
+
+  // Repassa parâmetros para o Telegram
+  const btn = document.getElementById('btnTelegram');
+  if ([...params].length > 0) {
+    btn.href += '?' + params.toString();
+  }
+</script>
+
+</body>
+</html>
